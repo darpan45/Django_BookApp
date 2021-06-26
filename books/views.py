@@ -1,3 +1,4 @@
+from django.http.response import Http404
 from django.shortcuts import render
 from django.http import HttpResponse
 import json
@@ -13,6 +14,9 @@ def index(request):
     return render(request,'books/index.html',context)
 
 def book_details(request,id):
-    singleBook=Book.objects.get(pk=id)
+    try:
+        singleBook=Book.objects.get(pk=id)
+    except Book.DoesNotExist:
+        raise Http404("Book does not exist")
     context={'book':singleBook}
     return render(request,'books/book_details.html',context)
