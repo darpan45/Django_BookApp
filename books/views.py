@@ -10,3 +10,11 @@ def index(request):
     #render function searches for templates folder in the app
     context={'books':data}
     return render(request,'books/index.html',context)
+
+def book_details(request,id):
+    singleBook=[]
+    for book in data:
+        if book['id']==id:
+            singleBook=book
+    context={'book':singleBook}
+    return render(request,'books/book_details.html',context)
