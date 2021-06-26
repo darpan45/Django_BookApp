@@ -36,10 +36,25 @@
                     <br>
                     <h5>Authors : {{book.authors}}</h5>
                     <h5>Categories : {{book.categories}}</h5>
+
+                    <br>
+                    <form method="POST" >
+                      {% csrf_token %}
+                      <div class="mb-3">
+                      
+                        <textarea class="form-control" id="review" rows="5" placeholder="Enter your Review here"></textarea>
+                      </div>
+                      <div class="d-grid gap-2 col-3 mx-auto"">
+                        <button type="submit" class="btn btn-dark">Submit</button>
+                      </div>
+                    </form>
                    
             </div>
           </div>
 
+          <!-- Review Form -->
+
+         
 
        
         </div>
