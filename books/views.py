@@ -3,15 +3,29 @@ from django.shortcuts import render,redirect
 from django.http import HttpResponse
 import json
 from .models import Book,Review
+from django.views.generic import ListView,DetailView
 #booksData=open(r'C:\Users\Darpan\Desktop\Projects\Django 2021\Django-Course\bookstore-Project\books.json').read()
 
 #data=json.loads(booksData)
 
-def index(request):
-    #render function searches for templates folder in the app
-    dbdata=Book.objects.all()
-    context={'books':dbdata}
-    return render(request,'books/index.html',context)
+
+
+class BookListView(ListView):
+    template_name='books/index.html'
+    context_object_name='books'
+
+    def get_queryset(self):
+        return Book.objects.all()
+
+# class BookDetailView(DetailView):
+#     model=Book
+#     template_name="books/book_details.html"
+
+# def index(request):
+#     #render function searches for templates folder in the app
+#     dbdata=Book.objects.all()
+#     context={'books':dbdata}
+#     return render(request,'books/index.html',context)
 
 def book_details(request,id):
     try:
