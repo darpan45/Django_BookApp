@@ -38,16 +38,24 @@
                     <h5>Categories : {{book.categories}}</h5>
 
                     <br>
-                    <form method="POST" >
+                    <form method="POST" action="{% url 'review' book.id %}">
                       {% csrf_token %}
                       <div class="mb-3">
-                      
-                        <textarea class="form-control" id="review" rows="5" placeholder="Enter your Review here"></textarea>
+                        <textarea class="form-control" name="review" rows="5" placeholder="Enter your Review here"></textarea>
                       </div>
                       <div class="d-grid gap-2 col-3 mx-auto"">
                         <button type="submit" class="btn btn-dark">Submit</button>
                       </div>
                     </form>
+
+                    <br>
+                    <h3>Reviews : </h3>
+                    <ul>
+
+                      {% for review in reviews %}
+                      <li>{{review.body}}</li>
+                      {% endfor %}
+                    </ul>
                    
             </div>
           </div>
