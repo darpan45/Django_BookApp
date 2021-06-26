@@ -8,6 +8,10 @@
 </head>
 <body>
     <h1>Django Books app</h1>
-    <h2>{{name}}</h2>
+
+    {% for book in books %}
+    <h2>{{book.title}}</h2>
+    <img src="{{book.thumbnailUrl}}" alt="" width="200">
+    {% endfor %}
 </body>
 </html>
