@@ -20,6 +20,12 @@ class BookListView(ListView):
 # class BookDetailView(DetailView):
 #     model=Book
 #     template_name="books/book_details.html"
+#     # reviews=Review.objects.filter(book_id=id).order_by('-created_at')
+
+#     def get_context_data(self, **kwargs):
+#         context=super().get_context_data(**kwargs)
+#         context['reviews']=context['book'].review_set.order_by('-created_at')
+#         return context
 
 # def index(request):
 #     #render function searches for templates folder in the app

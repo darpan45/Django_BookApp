@@ -52,7 +52,7 @@
                     <h3>Reviews : </h3>
                     <ul>
 
-                      {% for review in reviews %}
+                      {% for review in book.review_set.order_by %}
                       <li>{{review.body}}</li>
                       {% endfor %}
                     </ul>
