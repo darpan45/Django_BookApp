@@ -4,13 +4,21 @@ from django.http import HttpResponse
 import json
 from .models import Author, Book,Review
 from django.views.generic import ListView,DetailView
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required
+
+
+
+
+
+
 #booksData=open(r'C:\Users\Darpan\Desktop\Projects\Django 2021\Django-Course\bookstore-Project\books.json').read()
 
 #data=json.loads(booksData)
 
 
 
-class BookListView(ListView):
+class BookListView(LoginRequiredMixin,ListView):
     template_name='books/index.html'
     context_object_name='books'
 
@@ -33,6 +41,7 @@ class BookListView(ListView):
 #     context={'books':dbdata}
 #     return render(request,'books/index.html',context)
 
+@login_required
 def book_details(request,id):
     try:
         singleBook=Book.objects.get(pk=id)
