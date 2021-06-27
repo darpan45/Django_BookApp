@@ -1,4 +1,4 @@
-{% extends 'books/base.html' %} 
+{% extends 'base.html' %} 
 {% block title %}
 BookStore - {{book.title}}
 {% endblock %}
@@ -27,7 +27,7 @@ BookStore - {{book.title}}
 
                     <h5>Authors : </h5>
                     {% for author in authors %}
-                    {{author}} ,
+                   <a class="text-decoration-none" href="{% url 'author' author.name %}">{{author}}</a>,
                     {% endfor %}
                     <br> <br>
                     <h5>Categories : {{book.categories}}</h5>

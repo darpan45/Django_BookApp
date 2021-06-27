@@ -50,3 +50,8 @@ def review(request,id):
     newReview=Review(body=body,book_id=id) #entering values in db just like python shell
     newReview.save()
     return redirect('/book/')
+
+def author(request,author_name):
+    books=Book.objects.filter(authors__name=author_name)
+    context={'books':books}
+    return render(request,'books/index.html',context)
