@@ -2,7 +2,7 @@ from django.http.response import Http404
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
 import json
-from .models import Book,Review
+from .models import Author, Book,Review
 from django.views.generic import ListView,DetailView
 #booksData=open(r'C:\Users\Darpan\Desktop\Projects\Django 2021\Django-Course\bookstore-Project\books.json').read()
 
@@ -37,10 +37,11 @@ def book_details(request,id):
     try:
         singleBook=Book.objects.get(pk=id)
         #adding minus sign will make reviews in descending order
-        reviews=Review.objects.filter(book_id=id).order_by('-created_at')
+        reviews=Review.objects.filter(book=id).order_by('-created_at')
+        authors=Author.objects.filter(book=id).all()
     except Book.DoesNotExist:
         raise Http404("Book does not exist")
-    context={'book':singleBook,'reviews':reviews}
+    context={'book':singleBook,'reviews':reviews,'authors':authors}
     return render(request,'books/book_details.html',context)
 
 def review(request,id):

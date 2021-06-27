@@ -1,6 +1,6 @@
 {% extends 'books/base.html' %} 
 {% block title %}
-Book Details
+BookStore - {{book.title}}
 {% endblock %}
 {% block content %}
 
@@ -24,7 +24,12 @@ Book Details
                     <br>
                     <h5>Book Status :{{book.status}}</h5>
                     <br>
-                    <h5>Authors : {{book.authors}}</h5>
+
+                    <h5>Authors : </h5>
+                    {% for author in authors %}
+                    {{author}} ,
+                    {% endfor %}
+                    <br> <br>
                     <h5>Categories : {{book.categories}}</h5>
 
                     <br>

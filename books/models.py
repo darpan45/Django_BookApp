@@ -3,6 +3,14 @@ import json
 
 # Create your models here.
 #darpan pass
+class Author(models.Model):
+    name=models.CharField(max_length=100)
+    created_at=models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.name
+
+
 class Book(models.Model):
     title=models.CharField(max_length=256)
     isbn=models.CharField(max_length=256)
@@ -12,7 +20,7 @@ class Book(models.Model):
     shortDescription=models.CharField(max_length=512,null=True,blank=True)
     longDescription=models.TextField(null=True)
     status=models.CharField(max_length=256)
-    authors=models.CharField(max_length=256)
+    authors=models.ManyToManyField(Author)
     categories=models.CharField(max_length=256)
 
     def __str__(self):
@@ -22,3 +30,5 @@ class Review(models.Model):
     body=models.TextField()
     created_at=models.DateTimeField(auto_now=True)
     book=models.ForeignKey(Book,on_delete=models.CASCADE,null=True)
+
+
