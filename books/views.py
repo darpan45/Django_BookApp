@@ -18,7 +18,14 @@ from django.contrib.auth.decorators import login_required
 
 
 
-class BookListView(LoginRequiredMixin,ListView):
+# class BookListView(LoginRequiredMixin,ListView):
+#     template_name='books/index.html'
+#     context_object_name='books'
+
+#     def get_queryset(self):
+#         return Book.objects.all()
+
+class BookListView(ListView):
     template_name='books/index.html'
     context_object_name='books'
 
@@ -41,7 +48,7 @@ class BookListView(LoginRequiredMixin,ListView):
 #     context={'books':dbdata}
 #     return render(request,'books/index.html',context)
 
-@login_required
+# @login_required
 def book_details(request,id):
     try:
         singleBook=Book.objects.get(pk=id)

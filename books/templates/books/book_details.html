@@ -33,6 +33,7 @@ BookStore - {{book.title}}
                     <h5>Categories : {{book.categories}}</h5>
 
                     <br>
+                    {% if user.is_authenticated %}
                     <form method="POST" action="{% url 'review' book.id %}">
                       {% csrf_token %}
                       <div class="mb-3">
@@ -41,6 +42,13 @@ BookStore - {{book.title}}
                       <div class="d-grid gap-2 col-3 mx-auto"">
                         <button type="submit" class="btn btn-dark">Submit</button>
                       </div>
+                      {% else %}
+                      <p>
+                        <a href="{% url 'login' %}?next={{request.path}}">Login</a> to write Reviews .
+
+                      </p>
+                      
+                      {% endif %}
                     </form>
 
                     <br>

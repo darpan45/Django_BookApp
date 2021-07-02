@@ -53,6 +53,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'bookstore.urls'
 LOGIN_REDIRECT_URL = "/book"
+LOGOUT_REDIRECT_URL ="/login"
 
 TEMPLATES = [
     {
