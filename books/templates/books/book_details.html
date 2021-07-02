@@ -52,14 +52,15 @@ BookStore - {{book.title}}
                     </form>
 
                     <br>
-                    <h3>Reviews : </h3>
-                    <ul>
-
-                      {% for review in book.review_set.order_by %}
-                      <li>{{review.body}}</li>
-                      {% endfor %}
-                    </ul>
-                   
+                    <!-- <h3>Reviews : </h3> -->
+                    {% for review in book.review_set.order_by %}
+                    <div>
+                      <h5 class="text-muted"><strong>{{review.user}}</strong></h5>
+                      <p class="text-muted">{{review.created_at}}</p>
+                      <p class="lead">{{review.body}}</p>
+                      <br>
+                    </div>
+                      {% endfor %}  
             </div>
           </div>
 

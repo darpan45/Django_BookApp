@@ -62,12 +62,14 @@ def book_details(request,id):
 
 def review(request,id):
     #since form is sending post request,need to handle post request
-    body = request.POST.get('review', False)
-    newReview=Review(body=body,book_id=id) #entering values in db just like python shell
-    newReview.save()
+    if request.user.is_authenticated :
+        body = request.POST.get('review', False)
+        newReview=Review(body=body,book_id=id,user=request.user) #entering values in db just like python shell
+        newReview.save()
     return redirect('/book/')
 
 def author(request,author_name):
+    
     books=Book.objects.filter(authors__name=author_name)
     context={'books':books}
     return render(request,'books/index.html',context)
