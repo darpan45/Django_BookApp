@@ -52,8 +52,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'bookstore.urls'
-LOGIN_REDIRECT_URL = "/book"
-LOGOUT_REDIRECT_URL ="/login"
+
 
 TEMPLATES = [
     {
@@ -124,7 +123,22 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 LOGIN_URL = '/login/'
+LOGIN_REDIRECT_URL = "/book"
+LOGOUT_REDIRECT_URL ="/login"
+
+
+# EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
+# EMAIL_FILE_PATH =BASE_DIR/'tmp/app-messages'
+
+EMAIL_HOST = 'smtp.mailtrap.io'
+EMAIL_HOST_USER = '5a91140a07aeac'
+EMAIL_HOST_PASSWORD = 'f2424c5d7b6a56'
+EMAIL_PORT = '2525'
+
+
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+

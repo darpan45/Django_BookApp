@@ -1,6 +1,7 @@
 {% extends "base.html" %} 
 {% block content %}
-<div class="container mt-4 pt-4">
+<div class="container my-4 py-4">
+  <h1 >Login</h1>
   {% if form.errors %}
   <p>Your username and password didn't match. Please try again.</p>
   {% endif %} {% if next %} {% if user.is_authenticated %}
@@ -14,7 +15,7 @@
 
   <form method="post" action="{% url 'login' %}">
     {% csrf_token %}
-    <table>
+    <!-- <table>
       <tr>
         <td>{{ form.username.label_tag }}</td>
         <td>{{ form.username }}</td>
@@ -23,9 +24,31 @@
         <td>{{ form.password.label_tag }}</td>
         <td>{{ form.password }}</td>
       </tr>
-    </table>
+    </table> -->
 
-    <input type="submit" value="login" />
+    <div class="col-4 my-2">
+      <label for="username" class="my-2"> <strong> {{ form.username.label_tag }} </strong></label>
+      <input
+        type="text"
+        class="form-control"
+        name="username"
+        placeholder="Enter Username"
+      />
+    </div>
+
+    <div class="col-4 my-2">
+      <label for="password2" class="my-2">
+        <strong> {{ form.password.label_tag }} </strong></label
+      >
+      <input
+        type="password"
+        class="form-control"
+        name="password"
+        placeholder="Enter Password"
+      />
+    </div>
+
+    <input type="submit" value="login" class="btn btn-primary my-3 ps-4 pe-4"  />
     <input type="hidden" name="next" value="{{ next }}" />
   </form>
 
