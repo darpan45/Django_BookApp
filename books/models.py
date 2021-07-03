@@ -5,6 +5,9 @@ import json
 # Create your models here.
 #darpan pass
 #darpan2 pass@123
+
+#passwords changed for both users - pass@321
+
 class Author(models.Model):
     name=models.CharField(max_length=100)
     created_at=models.DateTimeField(auto_now=True)
