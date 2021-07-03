@@ -19,6 +19,7 @@ HTTP Server pip install gunicorn
 
 export requirements
 
-For Heroku procfile web: gunicorn projectName.wsgi --log-file -
+For Heroku procfile 
+web: gunicorn projectName.wsgi --log-file -
 
 Create Heroku app and Add Allowed hosts
