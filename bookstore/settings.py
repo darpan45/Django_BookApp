@@ -135,6 +135,9 @@ EMAIL_HOST_USER = '5a91140a07aeac'
 EMAIL_HOST_PASSWORD = 'f2424c5d7b6a56'
 EMAIL_PORT = '2525'
 
+MEDIA_ROOT="media"
+MEDIA_URL="media/"
+
 
 
 # Default primary key field type

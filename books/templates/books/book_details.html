@@ -8,7 +8,7 @@ BookStore - {{book.title}}
 
         <div class="row">
             <div class="col-3 my-4 py-4"><div class="text-center">
-                <img src="{{book.thumbnailUrl}}" alt="" width="200" />
+                <img src="{{book.image.url}}" alt="" width="200" />
             </div>
         </div>
             <div class="col-9">
@@ -39,6 +39,7 @@ BookStore - {{book.title}}
                       <div class="mb-3">
                         <textarea class="form-control" name="review" rows="5" placeholder="Enter your Review here"></textarea>
                       </div>
+                      
                       <div class="d-grid gap-2 col-3 mx-auto"">
                         <button type="submit" class="btn btn-dark">Submit</button>
                       </div>

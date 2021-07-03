@@ -21,12 +21,12 @@ class Book(models.Model):
     isbn=models.CharField(max_length=256)
     pageCount=models.IntegerField(default=0)
     publishedDate=models.DateTimeField(auto_now_add=True)
-    thumbnailUrl=models.CharField(max_length=256,null=True)
     shortDescription=models.CharField(max_length=512,null=True,blank=True)
     longDescription=models.TextField(null=True)
     status=models.CharField(max_length=256)
     authors=models.ManyToManyField(Author)
     categories=models.CharField(max_length=256)
+    image = models.ImageField(upload_to="images",null=True)
 
     def __str__(self):
         return self.title

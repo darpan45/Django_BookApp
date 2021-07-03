@@ -69,7 +69,7 @@ def review(request,id):
     return redirect('/book/')
 
 def author(request,author_name):
-    
+
     books=Book.objects.filter(authors__name=author_name)
     context={'books':books}
     return render(request,'books/index.html',context)
